@@ -15,7 +15,7 @@ namespace RLog
         {
             dateFormat = "yyyy-MM-dd HH:mm:ss.fff";
             string logFolderPath = ConfigurationManager.AppSettings["LogFilePath"];
-            logFilename = logFolderPath + DateTime.Now.ToString("yyyymmdd") + ".log";
+            
             if (string.IsNullOrEmpty(logFolderPath))
             {
                 logFolderPath = Environment.CurrentDirectory;
@@ -24,6 +24,7 @@ namespace RLog
             {
                 DirectoryInfo di = Directory.CreateDirectory(logFolderPath);
             }
+            logFilename = logFolderPath + "\\" +  DateTime.Now.ToString("yyyymmdd") + ".log";
         }
 
 
