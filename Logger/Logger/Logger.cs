@@ -26,6 +26,21 @@ namespace RLog
             }
         }
 
+
+        /// <summary>
+        ///  Write message to system file
+        ///   <param name="message">The text to be written to the file</param>
+        /// </summary>
+        private void WriteToFile(string message)
+        {
+            //Log the Message to the File System and appends text
+            using (StreamWriter sw = File.AppendText(logFilename))
+            {
+                sw.WriteLine(message);
+            }
+
+        }
+
         /// <summary>
         ///  Write message to system file
         ///   <param name="level">Log level that the message belongs to</param>
@@ -33,7 +48,8 @@ namespace RLog
         /// </summary>
         public void LogMessage(LogLevel level, string message)
         {
-            string pretext = string.Format("{0} [{1}]", System.DateTime.Now.ToString(dateFormat), level);        
+            string premessage = string.Format("{0} [{1}]", System.DateTime.Now.ToString(dateFormat), level);
+            WriteToFile(premessage + message);
         }
 
         //Loglevel Definitions defined
