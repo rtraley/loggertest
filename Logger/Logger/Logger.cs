@@ -24,7 +24,7 @@ namespace RLog
             {
                 DirectoryInfo di = Directory.CreateDirectory(logFolderPath);
             }
-            logFilename = logFolderPath + "\\" +  DateTime.Now.ToString("yyyymmdd") + ".log";
+            logFilename = logFolderPath + "\\" +  DateTime.Now.ToString("yyyyMMdd") + ".log";
         }
 
 
