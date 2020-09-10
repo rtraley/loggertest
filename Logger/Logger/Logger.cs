@@ -26,5 +26,24 @@ namespace RLog
             }
         }
 
+        /// <summary>
+        ///  Write message to system file
+        ///   <param name="level">Log level that the message belongs to</param>
+        ///   <param name="message">String that should be logged</param>
+        /// </summary>
+        public void LogMessage(LogLevel level, string message)
+        {
+            string pretext = string.Format("{0} [{1}]", System.DateTime.Now.ToString(dateFormat), level);        
+        }
+
+        //Loglevel Definitions defined
+        public enum LogLevel
+        {          
+            INFO,
+            DEBUG,
+            WARNING,
+            ERROR,
+            FATAL
+        }
     }
 }
